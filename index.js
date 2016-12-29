@@ -1,4 +1,5 @@
 var LRU = require('lru')
+var YLRU = require('ylru')
 var LruCache = require('lru-cache')
 var tinyLRU = require('tiny-lru')
 var SecondaryCache = require('secondary-cache')
@@ -12,6 +13,7 @@ var Fast = require('lru-fast').LRUCache
 var Native = require('lru-native')
 
 var algs = {
+  'ylru': function (n) { return new YLRU(n) },
   'hashlru': require('hashlru'),
   'lru-native': Native,
   'modern-lru': function (n) { return new Modern(n) },
@@ -20,7 +22,7 @@ var algs = {
 //  'tiny-lru': tinyLRU,
   'lru': LRU,
   'simple-lru-cache': function (n) { return new Simple({maxSize: n}) },
-  'mkc': function (n) { return new MKC({max: n}) },
+  // 'mkc': function (n) { return new MKC({max: n}) },
   'lru-fast': function (n) { return new Fast(n) },
   'faster-lru-cache': function (n) { return new Faster(n) },
   'secondary-cache': SecondaryCache
@@ -76,9 +78,3 @@ for(var name in algs) {
   var v = run(algs[name], N).map(function (e) { return Math.round(N/(e)) })
   console.log([name].concat(v).join(', '))
 }
-
-
-
-
-
-

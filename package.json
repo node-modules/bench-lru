@@ -19,10 +19,12 @@
     "lrucache": "^1.0.2",
     "mkc": "^1.3.0",
     "modern-lru": "^1.0.8",
+    "nan": "^2.5.0",
     "secondary-cache": "^1.2.1",
     "simple-lru-cache": "0.0.2",
     "tiny-lru": "^1.3.3",
-    "tiny-lru-cache": "^1.0.1"
+    "tiny-lru-cache": "^1.0.1",
+    "ylru": "^0.0.1"
   },
   "devDependencies": {},
   "scripts": {
